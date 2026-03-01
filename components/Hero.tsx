@@ -4,8 +4,12 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { HandWrittenTitle } from '@/components/ui/hand-writing-text';
+import { useState } from 'react';
+import ContactModal from '@/components/ContactModal';
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-12 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full">
       <nav className="absolute top-0 left-0 w-full flex items-center justify-between p-6 md:px-12 lg:px-24 z-10">
@@ -15,9 +19,9 @@ export default function Hero() {
           <a href="#services" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Services</a>
           <a href="#impact" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Impact</a>
         </div>
-        <a href="mailto:annasalami31@gmail.com" className="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity">
+        <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity">
           Collaborate with Hannah <ArrowRight className="w-4 h-4" />
-        </a>
+        </button>
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12 lg:mt-0">
@@ -69,9 +73,9 @@ export default function Hero() {
           >
             <HandWrittenTitle
               title={
-                <a href="mailto:annasalami31@gmail.com" className="inline-flex items-center gap-3 bg-transparent text-neutral-900 dark:text-white px-8 py-4 rounded-full font-medium hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors z-20 relative">
+                <button onClick={() => setIsModalOpen(true)} className="inline-flex items-center gap-3 bg-transparent text-neutral-900 dark:text-white px-8 py-4 rounded-full font-medium hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors z-20 relative">
                   Start Your Story <ArrowRight className="w-4 h-4" />
-                </a>
+                </button>
               }
             />
           </motion.div>
@@ -105,6 +109,8 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-50/50 dark:from-neutral-950/80 to-transparent mix-blend-overlay"></div>
         </motion.div>
       </div>
+
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
