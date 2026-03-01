@@ -4,6 +4,9 @@ import Hero from '@/components/Hero';
 import ValueProp from '@/components/ValueProp';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
+import BookPromo from '@/components/BookPromo';
+import SocialProofEmbed from '@/components/SocialProofEmbed';
+import CaseStudies from '@/components/CaseStudies';
 import CTA from '@/components/CTA';
 
 export default function Home() {
@@ -15,6 +18,9 @@ export default function Home() {
       <ValueProp />
       <Services />
       <Testimonials />
+      <BookPromo />
+      <SocialProofEmbed />
+      <CaseStudies />
       <CTA />
     </main>
   );
