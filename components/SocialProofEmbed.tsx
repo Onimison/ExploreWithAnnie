@@ -58,12 +58,12 @@ export default function SocialProofEmbed() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group flex flex-col bg-neutral-50 dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-lg border border-neutral-100 dark:border-neutral-800 transition-colors duration-300"
                         >
-                            <div className="relative aspect-[4/5] w-full overflow-hidden">
+                            <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-200 dark:bg-neutral-800">
                                 <Image
                                     src={post.image}
                                     alt={`Top performing post ${post.id}`}
                                     fill
-                                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                                    className="object-contain object-center group-hover:scale-105 transition-transform duration-700 ease-in-out"
                                     sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />

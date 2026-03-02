@@ -13,22 +13,34 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate submission to n8n webhook or email service
-        // To connect natively, configure an n8n webhook URL here:
-        // const webhookUrl = 'https://your-n8n-instance/webhook/lead-qualifier';
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
 
-        setTimeout(() => {
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                setIsSuccess(true);
+                setTimeout(() => {
+                    setIsSuccess(false);
+                    onClose();
+                }, 3000);
+            } else {
+                alert('Oops! Something went wrong. Please email directly.');
+            }
+        } catch (error) {
+            alert('Failed to send message. Please email directly.');
+        } finally {
             setIsSubmitting(false);
-            setIsSuccess(true);
-            setTimeout(() => {
-                setIsSuccess(false);
-                onClose();
-            }, 3000);
-        }, 1500);
+        }
     };
 
     return (
@@ -89,6 +101,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         </label>
                                         <input
                                             type="text"
+                                            name="name"
                                             required
                                             placeholder="Jane Doe"
                                             className="w-full bg-white/50 dark:bg-black/20 border border-neutral-200 dark:border-white/10 rounded-xl px-4 py-3 text-neutral-900 dark:text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-white/50 transition-all duration-300"
@@ -100,6 +113,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         </label>
                                         <input
                                             type="text"
+                                            name="company"
                                             placeholder="Acme Corp"
                                             className="w-full bg-white/50 dark:bg-black/20 border border-neutral-200 dark:border-white/10 rounded-xl px-4 py-3 text-neutral-900 dark:text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-white/50 transition-all duration-300"
                                         />
@@ -113,6 +127,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         </label>
                                         <input
                                             type="email"
+                                            name="email"
                                             required
                                             placeholder="jane@example.com"
                                             className="w-full bg-white/50 dark:bg-black/20 border border-neutral-200 dark:border-white/10 rounded-xl px-4 py-3 text-neutral-900 dark:text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-white/50 transition-all duration-300"
@@ -124,6 +139,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             Service of Interest
                                         </label>
                                         <select
+                                            name="service"
                                             required
                                             defaultValue=""
                                             className="w-full bg-neutral-50 dark:bg-[#151515] border border-neutral-200 dark:border-white/10 rounded-xl px-4 py-3 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-white/50 transition-all duration-300 appearance-none"
@@ -142,6 +158,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         Estimated Budget (NGN/USD)
                                     </label>
                                     <select
+                                        name="budget"
                                         required
                                         defaultValue=""
                                         className="w-full bg-neutral-50 dark:bg-[#151515] border border-neutral-200 dark:border-white/10 rounded-xl px-4 py-3 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-white/50 transition-all duration-300 appearance-none"
@@ -159,6 +176,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         Project Vision
                                     </label>
                                     <textarea
+                                        name="vision"
                                         required
                                         rows={4}
                                         placeholder="Tell me the story you want to bring to life..."

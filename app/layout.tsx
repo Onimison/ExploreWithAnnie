@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display, Oswald } from 'next/font/google';
 import './globals.css'; // Global styles
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import Navbar from '@/components/Navbar';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
@@ -50,9 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white dark:bg-neutral-950 dark:text-neutral-50 transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="fixed top-4 right-4 z-50">
-            <ThemeSwitcher />
-          </div>
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

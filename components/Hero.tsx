@@ -12,17 +12,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-12 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full">
-      <nav className="absolute top-0 left-0 w-full flex items-center justify-between p-6 md:px-12 lg:px-24 z-10">
-        <div className="font-serif font-bold text-xl tracking-tighter">Explore With Annie.</div>
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-500 dark:text-neutral-400">
-          <a href="#about" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">About</a>
-          <a href="#services" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Services</a>
-          <a href="#impact" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Impact</a>
-        </div>
-        <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity">
-          Collaborate with Hannah <ArrowRight className="w-4 h-4" />
-        </button>
-      </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12 lg:mt-0">
         <div className="flex flex-col items-start z-10">

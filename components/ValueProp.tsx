@@ -64,12 +64,12 @@ export default function ValueProp() {
             <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-400 mb-6">Real Numbers. Real Impact.</h3>
             <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory pt-2 px-2 -mx-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {[1, 2, 3, 4, 5].map((num) => (
-                <div key={num} className="relative w-72 md:w-80 h-[30rem] shrink-0 snap-center rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-neutral-200/50 dark:border-neutral-800">
+                <div key={num} className="relative w-72 md:w-80 h-[30rem] shrink-0 snap-center rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-neutral-200/50 dark:border-neutral-800">
                   <Image
                     src={`/dashboard${num}.jpeg`}
                     alt={`Dashboard analytics screenshot ${num}`}
                     fill
-                    className="object-cover object-top"
+                    className="object-contain object-center"
                     sizes="(max-width: 768px) 288px, 320px"
                   />
                 </div>
