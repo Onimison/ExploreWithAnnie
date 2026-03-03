@@ -37,9 +37,6 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
 
                     <div className="flex flex-wrap items-center justify-between border-y border-neutral-200 dark:border-neutral-800 py-6 gap-6">
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-200 relative shrink-0">
-                                <Image src="/Hannah_about_section.jpeg" alt={post.author} fill className="object-cover object-top" sizes="48px" />
-                            </div>
                             <div>
                                 <p className="font-semibold text-sm">{post.author}</p>
                                 <p className="text-xs text-neutral-500 dark:text-neutral-400">Content Strategist & Storyteller</p>
@@ -53,11 +50,6 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                             <button className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-full transition-colors" aria-label="Share Link"><Share2 className="w-4 h-4" /></button>
                         </div>
                     </div>
-                </div>
-
-                <div className="w-full h-[40vh] md:h-[60vh] rounded-3xl overflow-hidden relative mb-16">
-                    <Image src="/Hannah_hero_section.jpeg" alt="Article Cover" fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 800px" />
-                    <div className="absolute inset-0 bg-black/10"></div>
                 </div>
 
                 <div className="max-w-none font-sans text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-8 text-lg md:text-xl">

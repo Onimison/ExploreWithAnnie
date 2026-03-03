@@ -149,27 +149,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             <option value="instagram">Instagram Content Strategy</option>
                                             <option value="sponsored">Sponsored Collaborations</option>
                                             <option value="scriptwriting">Scriptwriting & Ghostwriting</option>
+                                            <option value="other">Other (Please specify in vision)</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-2">
-                                    <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                                        Estimated Budget (NGN/USD)
-                                    </label>
-                                    <select
-                                        name="budget"
-                                        required
-                                        defaultValue=""
-                                        className="w-full bg-neutral-50 dark:bg-[#151515] border border-neutral-200 dark:border-white/10 rounded-xl px-4 py-3 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-white/50 transition-all duration-300 appearance-none"
-                                    >
-                                        <option value="" disabled>Select a range</option>
-                                        <option value="<1k">Under $1,000 / ₦1.5M</option>
-                                        <option value="1k-3k">$1,000 - $3,000 / ₦1.5M - ₦4.5M</option>
-                                        <option value="3k-5k">$3,000 - $5,000 / ₦4.5M - ₦7.5M</option>
-                                        <option value="5k+">$5,000+ / ₦7.5M+</option>
-                                    </select>
-                                </div>
+
 
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">

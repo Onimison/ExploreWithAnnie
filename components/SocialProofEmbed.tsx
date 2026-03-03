@@ -22,6 +22,12 @@ const topPosts = [
         image: '/post3.jpeg',
         excerpt: "I've grown to realize that love is not about what someone can buy for you, but how they make you feel when nothing is happening. The calm. The honesty. The effort. The way they show up even on ordinary days.",
         link: 'https://www.instagram.com/p/DS20M5UDNem/?igsh=NjIyaW9wd2dpc294'
+    },
+    {
+        id: 4,
+        image: '/highlights1.jpeg',
+        excerpt: "Explore a curated collection of my viral posts and storytelling strategies that consistently capture attention and drive massive engagement.",
+        link: 'https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTkyOTU0NzMwOTA1MDY1?story_media_id=3783883924221745348&igsh=MWMwY2luejU2eWk1eg=='
     }
 ];
 
@@ -48,7 +54,7 @@ export default function SocialProofEmbed() {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {topPosts.map((post, index) => (
                         <motion.div
                             key={post.id}
